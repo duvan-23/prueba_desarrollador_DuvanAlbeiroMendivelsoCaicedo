@@ -1,0 +1,173 @@
+.pop-up{
+    background: rgba(48, 48, 48, 0.5);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    z-index: 10;
+}
+
+.pop-up-wrap{
+    display: flex;
+    align-items: center;
+    width: 38%;
+    max-width: 1250px;
+    transform: scale(0.6);
+    opacity: 0;
+    transition: .3s ease all;
+}
+.pop-up-contactos{
+    background: rgba(48, 48, 48, 0.5);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    z-index: 10;
+}
+
+.pop-up-wrap-contactos{
+    display: flex;
+    align-items: center;
+    width: 38%;
+    max-width: 1250px;
+    transform: scale(0.6);
+    opacity: 0;
+    transition: .3s ease all;
+}
+ 
+
+.pop-up-title::after{
+    content: '';
+    position: absolute;
+
+    background: rgba(9, 89, 238, 0.6);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.pop-up-title::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.3);
+    z-index: -1;
+}
+
+.subcription::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.3);
+    z-index: -1;
+}
+
+.pop-up-title h2,
+.pop-up-title p{
+    z-index: 10;
+    color: #fff;
+}
+
+.pop-up-title h2{
+    font-family: 'Chiller';
+    font-size: 80px;
+
+}
+
+
+.pop-up-title p{
+    font-family: 'Chiller';
+    font-size: 40px;
+    font-weight: 300;
+}
+
+.subcription{
+    background: #fff;
+    flex-basis: 0;
+    flex-grow: 2;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    text-align: center;
+}
+
+.sub-content{
+    width: 75%;
+}
+
+.sub-content h2{
+    font-weight: 500;
+    font-size: 40px;
+    color: #1F4068;
+    margin-bottom: 15px;
+}
+
+.sub-content p{
+    font-weight: 500;
+    color: #1F4068;
+    margin-bottom: 30px;
+}
+
+.subs-email{
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background: #ccc;
+    margin-bottom: 15px;
+}
+
+.subs-send:hover{
+    background: #1bc59b;
+}
+
+.line{
+    width: 100%;
+    height: 20px;
+}
+
+#close{
+    position: absolute;
+    top: 40px;
+    right: 25px;
+    font-size: 25px;
+    color: #000080;
+    cursor: pointer;
+}
+
+.pop-up.show{
+    visibility: visible;
+}
+
+.pop-up-wrap.show{
+    transform: scale(1);
+    opacity: 1;
+} 
+
+.pop-up-contactos.show{
+    visibility: visible;
+}
+
+.pop-up-wrap-contactos.show{
+    transform: scale(1);
+    opacity: 1;
+}

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <title>Agenda</title>
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mt-4 mb-4" style="background:#009c8c; color: #fff">
+                <h1>Gestión de Agenda</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+          <div class="col-3" style="background:#009c8c; color: #fff">
+            <h2>Usuarios
+                <button type="button" class="btn" onclick="showPopupUser()">
+                    <i class="fa fa-user-plus" aria-hidden="true" style="font-size:40px;color:black;"></i>
+                </button>
+            </h2>
+          </div>
+          <div class="col-9" style="background: #0a0a0a; color: #fff">
+            <h2> </h2>
+          </div>
+        </div>
+    </div>
+    <div class="container" style="background:#3F888F; color: #fff">
+        <div class="row">
+          <div class="col-3">
+              <h6 class="p-2">Seleccione usuario para Buscar:</h6>
+            <table class="table">
+                <tbody id="users"></tbody>
+            </table>
+          </div>
+          <div class="col-9 "style="background: #0a0a0a; color: #fff">
+            <div id="mensajeError"class="alert alert-danger alert-dismissible visually-hidden" >
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Error</strong> Usuario ya existe
+            </div>
+            <div id="mensajeExito"class="alert alert-success visually-hidden">
+                <strong>Success!</strong> Usuario ingresado Correctamente
+            </div>
+            <div id="mensajeErrorContacto"class="alert alert-danger alert-dismissible visually-hidden" >
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Error</strong> Numero de Contacto ya existe
+            </div>
+            <div id="mensajeExitoContacto"class="alert alert-success visually-hidden">
+                <strong>Success!</strong> Contacto ingresado Correctamente
+            </div>
+            <div class="col-12 p-2" style="background:#009c8c; color: #fff">
+                <h2 class="text-center">Usuario</h2>
+            </div>
+            <table class="table  m-1 text-light">
+                <thead>
+                <tr>
+                    <th> </th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Documento</th>
+                    <th>Fecha_nacimiento</th>
+                    <th>Genero</th>
+                    
+                </tr>
+                
+                </thead>
+                <tbody id="usuario"></tbody>
+            </table>
+            <div class="col-12" style="background: #0a0a0a;">
+                <div class="col-12 p-1 " style="background:#009c8c; ">
+                    <h2 class="m-2 ml-4">Contactos
+                        <button id="btncontacto" type="button" class="btn " onclick="showPopupCont()">
+                            <i class="fa fa-user-plus" aria-hidden="true" style="font-size:40px;color:black;"></i>
+                        </button>
+                    </h2>
+                  </div>
+                <table class="table  text-white">
+                    <thead>
+                    <tr>
+                        <th> </th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>No de Contacto</th>
+                        <th>Tipo de número</th>
+                        <th>Parentesco</th>
+                    </tr>
+                    </thead>
+                    <tbody id="contactos"></tbody>
+                </table>
+          </div>
+          </div>
+        </div>
+        
+    </div>
+    <div class="pop-up">
+        <div class="pop-up-wrap">
+            <div class="subcription">
+                <div class="sub-content ">
+                    <h2>Usuario</h2>
+                    <form action="" method="POST" id="formularioUsuarios"autocomplete="off">
+                        <input name="id" id="idusuario"type="hidden" class="subs-email " placeholder="ID " readonly>
+                        <input name="nombre" id="nombreusuario"type="text" class="subs-email" placeholder="Nombre " required>
+                        <input name="apellido" id="apellidousuario"type="text" class="subs-email es" placeholder="Apellido" required>
+                        <input name="documento"id="documentousuario" type="text" class="subs-email" placeholder="Documento"required>
+                        <input name="fecha" id="fechausuario" type="Date" class="subs-email" placeholder="Fecha_nacimiento"required>
+                        <label for="">Genero:</label>
+                        <select class="form-select bg-primary mb-3 text-white" id="generousuario"aria-label="Default select example"required>
+                            <option value="Masculino">Masculino</option>
+                            <option value="Femenino">Femenino</option>
+                          </select>
+                        <div class="btn-group d-flex justify-content-between" role="group" aria-label="Basic mixed styles example ">
+                            <button id="btnAgregar" class="btn btn-success visually-hidden" type="submit">Agregar</button>
+                            <button id="btnEditar" class="btn btn-warning visually-hidden" onclick="editarUsuario()" type="button">Editar</button>
+                            <button id="btnCancelar" class="btn btn-danger " type="button">Cancelar</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="line"></div>
+            </div>
+        </div>
+    </div>
+    <div class="pop-up-contactos">
+        <div class="pop-up-wrap-contactos">
+            <div class="subcription">
+                <div class="sub-content mt-4 mb-3">
+                    <h2>Contactos</h2>
+                    <form action=" " method="POST" id="formularioContactos"autocomplete="off">
+                        <input name="id" id="idcontacto"type="hidden" class="subs-email" placeholder="ID " readonly>
+                        <input name="id" id="idusuario2"type="hidden" class="subs-email" placeholder="ID usuario" readonly>
+                        <input name="nombre" id="nombrecontacto"type="text" class="subs-email " placeholder="Nombre " required>
+                        <input name="apellido" id="apellidocontacto" type="text" class="subs-email " placeholder="Apellido" required>
+                        <input name="numero_contacto" id="numerocontacto" type="text" class="subs-email" placeholder="numero de contacto" required>
+                        <label for="">Tipo telefono:</label>
+                        <select class="form-select bg-primary mb-3  text-white" id="tipocontacto"aria-label="Default select example"required>
+                            <option selected>Fijo</option>
+                            <option value="Movil">Movil</option>
+                          </select>
+                          <label for="">Parentesco:</label>
+                          <select class="form-select bg-primary mb-3  text-white" id="parentescocontacto"aria-label="Default select example"required>
+                            <option selected>Amigo</option>
+                            <option value="Familiar">Familiar</option>
+                            <option value="Compañero de Trabajo">Compañero de Trabajo</option>
+                          </select>
+                        <div class="btn-group d-flex justify-content-between" role="group" aria-label="Basic mixed styles example ">
+                            <button id="btnAgregar2" class="btn btn-success visually-hidden" type="submit">Agregar</button>
+                            <button id="btnEditar2"   class="btn btn-warning visually-hidden"onclick="editarContactos()" type="button">Editar</button>
+                            <button id="btnCancelar2"class="btn btn-danger" type="button">Cancelar</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="line"></div>
+            </div>
+        </div>
+    </div>
+    <script src="js/agenda.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>
